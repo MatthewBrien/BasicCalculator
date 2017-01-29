@@ -11,6 +11,7 @@ namespace BasicCalculator
     {
         private List<CalcNumber> numbers = new List<CalcNumber>();
         char mathOperator = '+';
+        
 
         public MainWindow()
         {
@@ -21,18 +22,28 @@ namespace BasicCalculator
         private void input_Click(object sender, RoutedEventArgs e)
         {
             Button callingButton = (Button)sender;
-            CurrentNumber().AddCharachter((char)callingButton.Content.ToString()[0]);
+            char newChar = (char)callingButton.Content.ToString()[0];
+            if (!CurrentNumber().AddCharachter(newChar) )
+            {
+                numbers.Clear();
+                numbers.Add(new CalcNumber());
+                numbers[0].AddCharachter((newChar));
+            }
             UpdateScreen();
         }
 
         private void operator_Click(object sender, RoutedEventArgs e)
         {
+            
+            
             //if two numbers exist in the list, operate on them with the current opperator
             if(numbers.Count > 1)
             {
                 calculate();
+                numbers.Add(new CalcNumber());
             }
-            else
+
+            if (numbers.Count == 1)
             {
                 numbers.Add(new CalcNumber());
             }
@@ -48,55 +59,53 @@ namespace BasicCalculator
             if(numbers.Count > 1)
             {
                 calculate();
-                numbers.Add(new CalcNumber());
             }
         }
 
-        private void calculate()
+        //uses the currently selected  operator, and operatres on the first two numbers
+        //updates list so the the first number contains the result
+        private void calculate() 
         {
-            if(numbers.Count > 2)
+           
+            if (numbers.Count > 1)
             {
-                MessageBox.Show("Looks like there are more numbers in the list than expeccted.");
-            }
-            //get first and second numbers, and calculate
-            double num1 = numbers[0].Number();
-            numbers.RemoveAt(0);
-            double num2 = numbers[0].Number();
-            numbers.RemoveAt(0);
-            double result;
+                //get first and second numbers, and calculate
+                double num1 = numbers[0].Number();
+                double num2 = numbers[1].Number();
+                double result;
 
-            switch(mathOperator)
-            { 
-                case '+':
+                switch (mathOperator)
+                {
+                    case '+':
                         result = num1 + num2;
-                break;
+                        break;
 
                     case '-':
                         result = num1 - num2;
-                break;
+                        break;
                     case '*':
                         result = num1 * num2;
-                break;
+                        break;
                     case '/':
-                    if (num2 == 0)
-                    {
-                        result = 0;
-                    }
-                    else
-                    {
-                        result = num1 / num2;
-                    }
-                break;
-                default:
-                    MessageBox.Show("You seem to have broken something with the " + mathOperator + " symbol");
-                    result = 0; //bad practice should throw an exception
-                break;
-            }
+                        if (num2 == 0)
+                        {
+                            result = 0;
+                        }
+                        else
+                        {
+                            result = num1 / num2;
+                        }
+                        break;
+                    default:
+                        MessageBox.Show("no operator selected");
+                        result = 0; //bad practice should throw an exception
+                        break;
+                }
 
-            numbers.Clear();
-            numbers.Add(new CalcNumber(result));
-            UpdateScreen();
-
+                numbers.Clear();
+                numbers.Add(new CalcNumber(result));
+                UpdateScreen();
+            } 
     }
         private void btnBackspace_Click(object sender, RoutedEventArgs e)
         {
@@ -107,7 +116,7 @@ namespace BasicCalculator
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
-            numbers.Clear(); // check if this will cause a memory leak. Not sure how .net will handle
+            numbers.Clear();
             numbers.Add(new CalcNumber());
             UpdateScreen();
         }
@@ -117,7 +126,7 @@ namespace BasicCalculator
             string output = "";
             if(numbers.Count > 1)
             {
-                output = mathOperator + " ";
+                output = numbers[0].ToString() + " " +  mathOperator + " ";
             }
             output += CurrentNumber().ToString();
             lblScreen.Content = output;
@@ -127,6 +136,8 @@ namespace BasicCalculator
         {
             return numbers[numbers.Count - 1];
         }
+
+      
 
     }
 }

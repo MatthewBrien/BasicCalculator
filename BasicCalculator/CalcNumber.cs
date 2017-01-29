@@ -4,7 +4,8 @@ namespace BasicCalculator
 {
     class CalcNumber
     {
-        private bool decimalPoint = false;
+        private bool containsDecimalPoint = false;
+        private bool buildingNumber = true;
         private List<char> numbers = new List<char>();
 
         public CalcNumber()
@@ -19,9 +20,10 @@ namespace BasicCalculator
                 numbers.Add(charachter);
                 if(charachter == '.')
                 {
-                    decimalPoint = true;
+                    containsDecimalPoint = true;
                 }
             }
+            buildingNumber = false;
         }
 
         public override string ToString()
@@ -44,39 +46,53 @@ namespace BasicCalculator
             
         }
 
-        public void AddCharachter(char next)
+        public bool AddCharachter(char next)
         {
-            if(next == '.' )
+            if (buildingNumber)
             {
-                addDecimal();
+                if (next == '.')
+                {
+                    addDecimal();
+                    return true;
+                }
+                else
+                {
+                    numbers.Add(next);
+                    return true;
+                }
             }
-            else
-            {
-                numbers.Add(next);
-            }
+            return false;
         }
 
         public void RemoveCharachter()
         {
-            if (numbers.Count > 0)
+            if (!buildingNumber)
+            {
+                Clear();
+            }
+
+            if (numbers.Count > 0 && buildingNumber)
             {
                 numbers.RemoveAt(numbers.Count - 1);
             }
+
+            
         }
         
         private void addDecimal()
         {
-            if(decimalPoint == false)
+            if(containsDecimalPoint == false)
             {
                 numbers.Add('.');
-                decimalPoint = true;
+                containsDecimalPoint = true;
             }
         }
 
         public void Clear()
         {
             numbers.Clear();
-            decimalPoint = false;
+            containsDecimalPoint = false;
+            buildingNumber = true;
         }
 
         public double Number()
