@@ -7,25 +7,25 @@
         mc:Ignorable="d"
         Title="Calculator" Height="350" Width="409.948">
     <Grid>
-        <Label x:Name="lblScreen" HorizontalAlignment="Left" Height="46" Margin="10,10,0,0" VerticalAlignment="Top" Width="379" BorderThickness="2,2,1,1" BorderBrush="Black"/>
-        <Button x:Name="btn7" Content="7" HorizontalAlignment="Left" Height="56" Margin="10,61,0,0" VerticalAlignment="Top" Width="56" FontSize="20" Click="input_Click"/>
-        <Button x:Name="btn8" Content="8" HorizontalAlignment="Left" Height="56" Margin="73,61,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="1.977,0.616" FontSize="20" Click="input_Click"/>
-        <Button x:Name="btn9" Content="9" HorizontalAlignment="Left" Height="56" Margin="136,61,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="1.704,0.585" FontSize="20" Click="input_Click"/>
-        <Button x:Name="btn2" HorizontalAlignment="Left" Height="56" Margin="73,187,0,0" VerticalAlignment="Top" Width="56" Content="2" FontSize="20" Click="input_Click"/>
-        <Button x:Name="btn4" Content="4" HorizontalAlignment="Left" Height="56" Margin="10,124,0,0" VerticalAlignment="Top" Width="56" FontSize="20" Click="input_Click"/>
-        <Button x:Name="btn5" Content="5" HorizontalAlignment="Left" Height="56" Margin="73,124,0,0" VerticalAlignment="Top" Width="56" FontSize="20" Click="input_Click"/>
-        <Button x:Name="btn6" Content="6" HorizontalAlignment="Left" Height="56" Margin="136,124,0,0" VerticalAlignment="Top" Width="56" FontSize="20" Click="input_Click"/>
-        <Button x:Name="btn1" Content="1" HorizontalAlignment="Left" Height="56" Margin="10,187,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.528,3.068" FontSize="20" Click="input_Click"/>
-        <Button x:Name="btn3" HorizontalAlignment="Left" Height="56" Margin="136,187,0,0" VerticalAlignment="Top" Width="56" Content="3" FontSize="20" Click="input_Click"/>
-        <Button x:Name="btn0" Content="0" HorizontalAlignment="Left" Height="56" Margin="10,250,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.528,3.068" FontSize="20" Click="input_Click"/>
-        <Button x:Name="btnDot" Content="." HorizontalAlignment="Left" Height="56" Margin="73,250,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.528,3.068" FontSize="20" Click="input_Click"/>
+        <Label x:Name="lblScreen" HorizontalAlignment="Left" Height="46" Margin="10,10,0,0"  VerticalAlignment="Top" Width="379" BorderThickness="2,2,1,1" BorderBrush="Black" TextOptions.TextHintingMode="Animated" Content="0" Cursor="None" VerticalContentAlignment="Center"  FontSize="20" FontWeight="Bold" />
+        <Button x:Name="btn7" Content='7' HorizontalAlignment="Left" Height="56" Margin="10,61,0,0" VerticalAlignment="Top" Width="56" FontSize="20" Click="input_Click"/>
+        <Button x:Name="btn8" Content='8' HorizontalAlignment="Left" Height="56" Margin="73,61,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="1.977,0.616" FontSize="20" Click="input_Click"/>
+        <Button x:Name="btn9" Content='9' HorizontalAlignment="Left" Height="56" Margin="136,61,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="1.704,0.585" FontSize="20" Click="input_Click"/>
+        <Button x:Name="btn2" Content='2' HorizontalAlignment="Left" Height="56" Margin="73,187,0,0" VerticalAlignment="Top" Width="56" FontSize="20" Click="input_Click"/>
+        <Button x:Name="btn4" Content='4' HorizontalAlignment="Left" Height="56" Margin="10,124,0,0" VerticalAlignment="Top" Width="56" FontSize="20" Click="input_Click"/>
+        <Button x:Name="btn5" Content='5'  HorizontalAlignment="Left" Height="56" Margin="73,124,0,0" VerticalAlignment="Top" Width="56" FontSize="20" Click="input_Click"/>
+        <Button x:Name="btn6" Content='6' HorizontalAlignment="Left" Height="56" Margin="136,124,0,0" VerticalAlignment="Top" Width="56" FontSize="20" Click="input_Click"/>
+        <Button x:Name="btn1" Content='1' HorizontalAlignment="Left" Height="56" Margin="10,187,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.528,3.068" FontSize="20" Click="input_Click"/>
+        <Button x:Name="btn3" Content='3' HorizontalAlignment="Left" Height="56" Margin="136,187,0,0" VerticalAlignment="Top" Width="56"  FontSize="20" Click="input_Click"/>
+        <Button x:Name="btn0" Content='0' HorizontalAlignment="Left" Height="56" Margin="10,250,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.528,3.068" FontSize="20" Click="input_Click"/>
+        <Button x:Name="btnDot" Content='.' HorizontalAlignment="Left" Height="56" Margin="73,250,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.528,3.068" FontSize="20" Click="input_Click"/>
         <Button x:Name="btnClear" Content="Clear" HorizontalAlignment="Left" Margin="258,61,0,0" VerticalAlignment="Top" Width="131" RenderTransformOrigin="-0.065,-0.299" Height="56" FontSize="20" Click="btnClear_Click"/>
-        <Button x:Name="btnDivide" Content="/" HorizontalAlignment="Left" Height="56" Margin="197,61,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="1.704,0.585" FontSize="20" Click="input_Click"/>
-        <Button x:Name="btnMultiply" Content="*" HorizontalAlignment="Left" Height="56" Margin="197,124,0,0" VerticalAlignment="Top" Width="56" FontSize="20" Click="input_Click"/>
-        <Button x:Name="btnSubtract" HorizontalAlignment="Left" Height="56" Margin="197,187,0,0" VerticalAlignment="Top" Width="56" Content="-" FontSize="20" Click="input_Click"/>
-        <Button x:Name="btnAdd" HorizontalAlignment="Left" Height="56" Margin="197,250,0,0" VerticalAlignment="Top" Width="56" Content="+" FontSize="20" Click="input_Click"/>
-        <Button x:Name="btnEquals" Content="=" HorizontalAlignment="Left" Height="56" Margin="134,250,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.528,3.068" FontSize="20" Click="input_Click"/>
-        <Button x:Name="btnBackspace" Content="&lt;--" HorizontalAlignment="Left" Margin="258,124,0,0" VerticalAlignment="Top" Width="131" RenderTransformOrigin="-0.065,-0.299" Height="56" FontSize="20" Click="btnBackspace_Click"/>
+        <Button x:Name="btnDivide" Content='/' HorizontalAlignment="Left" Height="56" Margin="197,61,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="1.704,0.585" FontSize="20" Click="operator_Click"/>
+        <Button x:Name="btnMultiply" Content='*' HorizontalAlignment="Left" Height="56" Margin="197,124,0,0" VerticalAlignment="Top" Width="56" FontSize="20" Click="operator_Click"/>
+        <Button x:Name="btnSubtract" HorizontalAlignment="Left" Height="56" Margin="197,187,0,0" VerticalAlignment="Top" Width="56" Content="-" FontSize="20" Click="operator_Click"/>
+        <Button x:Name="btnAdd" HorizontalAlignment="Left" Height="56" Margin="197,250,0,0" VerticalAlignment="Top" Width="56" Content="+" FontSize="20" Click="operator_Click"/>
+        <Button x:Name="btnEquals" Content='=' HorizontalAlignment="Left" Height="56" Margin="134,250,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.528,3.068" FontSize="20" Click="equals_Click"/>
+        <Button x:Name="btnBackspace" Content="&lt;--" HorizontalAlignment="Left" Margin="257,124,0,0" VerticalAlignment="Top" Width="131" RenderTransformOrigin="-0.065,-0.299" Height="56" FontSize="20" Click="btnBackspace_Click"/>
 
     </Grid>
 </Window>
